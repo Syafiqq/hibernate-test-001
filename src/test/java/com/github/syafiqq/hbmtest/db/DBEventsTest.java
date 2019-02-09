@@ -1,12 +1,14 @@
 package com.github.syafiqq.hbmtest.db;
 
 import com.github.syafiqq.hbmtest.pojo.Event;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import junit.framework.TestCase;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.junit.Assert;
 
 /*
  * This <test-hibernate> created by :
@@ -72,7 +74,7 @@ public class DBEventsTest extends TestCase
         var result = session.createQuery("from Event").list();
         for(var event : (List<Event>) result)
         {
-            System.out.println("Event (" + event.getDate() + ") : " + event.getTitle());
+            Assert.assertTrue(Arrays.stream(new String[] {"first", "second"}).anyMatch(x -> event.getTitle().toLowerCase().contains(x)));
         }
         session.getTransaction().commit();
         session.close();
