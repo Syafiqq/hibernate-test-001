@@ -17,7 +17,7 @@ import org.junit.Assert;
  */
 public class DBEventsTest extends TestCase implements AbstractConnection
 {
-    private SessionFactory sessionFactory;
+    protected SessionFactory sessionFactory;
 
     @Override
     protected void setUp() throws Exception
