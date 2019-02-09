@@ -6,8 +6,6 @@ import java.util.Date;
 import java.util.List;
 import junit.framework.TestCase;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.junit.Assert;
 
 /*
@@ -17,29 +15,14 @@ import org.junit.Assert;
  * Email        : syafiq.rezpector@gmail.com
  * Github       : syafiqq
  */
-public class DBEventsTest extends TestCase
+public class DBEventsTest extends TestCase implements AbstractConnection
 {
     private SessionFactory sessionFactory;
 
     @Override
     protected void setUp() throws Exception
     {
-        // A SessionFactory is set up once for an application!
-        final var registry = new StandardServiceRegistryBuilder()
-                .configure("/hbm/config/hibernate.h2.cfg.xml") // configures settings from hibernate.h2.cfg.xml
-                .build();
-        try
-        {
-            sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
-            System.out.println("Session Factory Success Create");
-        }
-        catch(Exception e)
-        {
-            // The registry would be destroyed by the SessionFactory, but we had trouble building the SessionFactory
-            // so destroy it manually.
-            System.err.println(e.getMessage());
-            StandardServiceRegistryBuilder.destroy(registry);
-        }
+        sessionFactory = AbstractConnection.super.setUp("/hbm/config/hibernate.h2.cfg.xml");
     }
 
     @Override
