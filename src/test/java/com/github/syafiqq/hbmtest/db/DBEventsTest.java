@@ -24,7 +24,7 @@ public class DBEventsTest extends TestCase
     {
         // A SessionFactory is set up once for an application!
         final var registry = new StandardServiceRegistryBuilder()
-                .configure("/hibernate.h2.cfg.xml") // configures settings from hibernate.h2.cfg.xml
+                .configure("/hbm/config/hibernate.h2.cfg.xml") // configures settings from hibernate.h2.cfg.xml
                 .build();
         try
         {

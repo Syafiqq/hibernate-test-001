@@ -34,7 +34,7 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create</property>
 
-        <mapping resource="com/github/syafiqq/hbmtest/pojo/Event.hbm.xml"/>
+        <mapping resource="hbm/pojo/Event.hbm.xml"/>
 
     </session-factory>
 
