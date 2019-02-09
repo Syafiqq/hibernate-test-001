@@ -1,5 +1,6 @@
-package com.github.syafiqq.hbmtest.db;
+package com.github.syafiqq.hbmtest.db.common;
 
+import com.github.syafiqq.hbmtest.db.AbstractConnection;
 import com.github.syafiqq.hbmtest.pojo.Event;
 import java.util.Arrays;
 import java.util.Date;
@@ -15,7 +16,7 @@ import org.junit.Assert;
  * Email        : syafiq.rezpector@gmail.com
  * Github       : syafiqq
  */
-public class DBEventsTest extends TestCase implements AbstractConnection
+public class CommonDbTest extends TestCase implements AbstractConnection
 {
     protected SessionFactory sessionFactory;
 
