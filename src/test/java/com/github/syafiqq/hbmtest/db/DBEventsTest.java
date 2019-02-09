@@ -24,7 +24,7 @@ public class DBEventsTest extends TestCase
     {
         // A SessionFactory is set up once for an application!
         final var registry = new StandardServiceRegistryBuilder()
-                .configure() // configures settings from hibernate.cfg.xml
+                .configure("/hibernate.h2.cfg.xml") // configures settings from hibernate.h2.cfg.xml
                 .build();
         try
         {
@@ -62,7 +62,8 @@ public class DBEventsTest extends TestCase
                           .title("My Second Title")
                           .date(new Date())
                           .build());
-        session.getTransaction().commit();
+        session.getTransaction()
+               .commit();
         session.close();
 
         // now lets pull events from the database and list them
