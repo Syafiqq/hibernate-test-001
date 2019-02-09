@@ -18,4 +18,5 @@ dependencies {
     testImplementation group: 'com.h2database', name: 'h2', version: '1.4.197'
     testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
     testImplementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
+    testImplementation group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
 }
