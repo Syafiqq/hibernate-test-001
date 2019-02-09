@@ -4,7 +4,10 @@ import com.github.syafiqq.hbmtest.pojo.Event;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import junit.framework.TestCase;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.junit.Assert;
 
 /*
@@ -14,12 +17,28 @@ import org.junit.Assert;
  * Email        : syafiq.rezpector@gmail.com
  * Github       : syafiqq
  */
-public abstract class CommonDbTest
+public class CommonDbTest extends TestCase
 {
     protected SessionFactory sessionFactory;
 
-    protected abstract void setUp() throws Exception;
+    @Override
+    protected void setUp() throws Exception
+    {
+        final var registry = new StandardServiceRegistryBuilder()
+                .configure("/hbm/config/hibernate.h2.cfg.xml") // configures settings from hibernate.h2.cfg.xml
+                .build();
+        try
+        {
+            sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+        }
+        catch(Exception e)
+        {
+            System.err.println(e.getMessage());
+            StandardServiceRegistryBuilder.destroy(registry);
+        }
+    }
 
+    @Override
     protected void tearDown() throws Exception
     {
         if(sessionFactory != null)
