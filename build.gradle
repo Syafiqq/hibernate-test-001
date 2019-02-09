@@ -17,4 +17,5 @@ dependencies {
     implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.1.Final'
     testImplementation group: 'com.h2database', name: 'h2', version: '1.4.197'
     testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+    testImplementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
 }
