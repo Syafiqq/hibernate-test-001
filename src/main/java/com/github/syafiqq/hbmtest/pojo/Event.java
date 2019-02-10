@@ -3,9 +3,8 @@ package com.github.syafiqq.hbmtest.pojo;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /*
  * This <test-hibernate> created by :
@@ -15,12 +14,13 @@ import lombok.Setter;
  * Github       : syafiqq
  */
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Event
 {
-    @Getter @Setter private Long id;
-    @Getter @Setter private String title;
-    @Getter @Setter private Date date;
+    private Long id;
+    private String title;
+    private Date date;
 }
