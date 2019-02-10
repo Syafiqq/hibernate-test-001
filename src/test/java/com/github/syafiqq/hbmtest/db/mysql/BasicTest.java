@@ -1,7 +1,5 @@
 package com.github.syafiqq.hbmtest.db.mysql;
 
-import com.github.syafiqq.hbmtest.db.common.CommonDbTest;
-
 /*
  * This <test-hibernate> created by :
  * Name         : syafiq
@@ -9,7 +7,7 @@ import com.github.syafiqq.hbmtest.db.common.CommonDbTest;
  * Email        : syafiq.rezpector@gmail.com
  * Github       : syafiqq
  */
-public class BasicTest extends CommonDbTest
+public class BasicTest extends com.github.syafiqq.hbmtest.db.common.BasicTest
 {
     @SuppressWarnings("MethodDoesntCallSuperMethod")
     @Override protected void setUp() throws Exception

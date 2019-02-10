@@ -16,7 +16,7 @@ import org.junit.Assert;
  * Email        : syafiq.rezpector@gmail.com
  * Github       : syafiqq
  */
-public class CommonDbTest extends TestCase implements AbstractConnection
+public class BasicTest extends TestCase implements AbstractConnection
 {
     protected SessionFactory sessionFactory;
 
