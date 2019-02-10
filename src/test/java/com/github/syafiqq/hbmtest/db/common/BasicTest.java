@@ -38,23 +38,25 @@ public class BasicTest extends TestCase implements AbstractConnection
     @SuppressWarnings("unchecked")
     public void testBasicUsage()
     {
-        var session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.save(new Event("My First Title", new Date()));
-        session.save(new Event("My Second Title", new Date()));
-        session.getTransaction()
-               .commit();
-        session.close();
-
-        // now lets pull events from the database and list them
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        var result = session.createQuery("from Event").list();
-        for(var event : (List<Event>) result)
+        try(var session = sessionFactory.openSession())
         {
-            Assert.assertTrue(Arrays.stream(new String[] {"first", "second"}).anyMatch(x -> event.getTitle().toLowerCase().contains(x)));
+            session.beginTransaction();
+            session.save(new Event("My First Title", new Date()));
+            session.save(new Event("My Second Title", new Date()));
+            session.getTransaction()
+                   .commit();
         }
-        session.getTransaction().commit();
-        session.close();
+
+        try(var session = sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            var result = session.createQuery("from Event").list();
+            for(var event : (List<Event>) result)
+            {
+                Assert.assertTrue(Arrays.stream(new String[] {"first", "second"}).anyMatch(x -> event.getTitle().toLowerCase().contains(x)));
+            }
+            session.getTransaction()
+                   .commit();
+        }
     }
 }
