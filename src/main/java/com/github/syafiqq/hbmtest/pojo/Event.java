@@ -1,6 +1,7 @@
 package com.github.syafiqq.hbmtest.pojo;
 
 import java.util.Date;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class Event
     private Long id;
     private String title;
     private Date date;
+    private Set<Attendee> attendees;
 
     @java.beans.ConstructorProperties({"title", "date"})
     public Event(String title, Date date)
