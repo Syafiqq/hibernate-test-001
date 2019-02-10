@@ -40,14 +40,8 @@ public class BasicTest extends TestCase implements AbstractConnection
     {
         var session = sessionFactory.openSession();
         session.beginTransaction();
-        session.save(Event.builder()
-                          .title("My First Title")
-                          .date(new Date())
-                          .build());
-        session.save(Event.builder()
-                          .title("My Second Title")
-                          .date(new Date())
-                          .build());
+        session.save(new Event("My First Title", new Date()));
+        session.save(new Event("My Second Title", new Date()));
         session.getTransaction()
                .commit();
         session.close();
