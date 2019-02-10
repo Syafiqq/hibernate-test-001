@@ -8,6 +8,8 @@ import java.util.List;
 import junit.framework.TestCase;
 import org.hibernate.SessionFactory;
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
+import org.junit.runners.MethodSorters;
 
 /*
  * This <test-hibernate> created by :
@@ -16,6 +18,7 @@ import org.junit.Assert;
  * Email        : syafiq.rezpector@gmail.com
  * Github       : syafiqq
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BasicTest extends TestCase implements AbstractConnection
 {
     protected SessionFactory sessionFactory;
@@ -55,6 +58,30 @@ public class BasicTest extends TestCase implements AbstractConnection
             {
                 Assert.assertTrue(Arrays.stream(new String[] {"first", "second"}).anyMatch(x -> event.getTitle().toLowerCase().contains(x)));
             }
+            session.getTransaction()
+                   .commit();
+        }
+    }
+
+    public void testInsertEvent()
+    {
+        try(var session = sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            Storage.events.values().forEach(session::save);
+            session.getTransaction()
+                   .commit();
+        }
+
+        try(var session = sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            var cb = session.getCriteriaBuilder();
+            var crt = cb.createQuery(Object.class);
+            var root = crt.from(Event.class);
+            crt.select(cb.count(root));
+            var result = session.createQuery(crt).getSingleResult();
+            Assert.assertEquals(2L, result);
             session.getTransaction()
                    .commit();
         }

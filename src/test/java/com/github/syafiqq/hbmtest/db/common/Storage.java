@@ -6,8 +6,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 /*
  * This <test-hibernate> created by :
@@ -37,7 +35,7 @@ public final class Storage
         attendees.put(5L, new Attendee(5L, "Attendee 5", new Date(), null));
 
         //assoc
-        events.get(1L).getAttendees().addAll(attendees.entrySet()
+        /*events.get(1L).getAttendees().addAll(attendees.entrySet()
                                                       .stream()
                                                       .filter(x -> x.getKey() < 3)
                                                       .map(Map.Entry::getValue)
@@ -48,6 +46,6 @@ public final class Storage
                                                       .filter(x -> x.getKey() >= 3)
                                                       .map(Map.Entry::getValue)
                                                       .collect(Collectors.toList())
-        );
+        );*/
     }
 }
