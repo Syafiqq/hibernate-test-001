@@ -20,7 +20,6 @@ public class Attendee
     private Long id;
     private String name;
     private Date date;
-    private Long eventId;
     private Event event;
 
     @java.beans.ConstructorProperties({"name", "date", "event"})
@@ -28,7 +27,6 @@ public class Attendee
     {
         this.name = name;
         this.date = date;
-        this.eventId = event.getId();
         this.event = event;
     }
 }
