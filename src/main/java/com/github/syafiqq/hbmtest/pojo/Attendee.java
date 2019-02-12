@@ -20,13 +20,12 @@ public class Attendee
     private Long id;
     private String name;
     private Date date;
-    private Event event;
+    private transient Event event;
 
-    @java.beans.ConstructorProperties({"name", "date", "event"})
-    public Attendee(String name, Date date, Event event)
+    @java.beans.ConstructorProperties({"name", "date"})
+    public Attendee(String name, Date date)
     {
         this.name = name;
         this.date = date;
-        this.event = event;
     }
 }
