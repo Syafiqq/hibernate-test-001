@@ -18,7 +18,7 @@
         </id>
         <property name="date" type="timestamp" column="date"/>
         <property name="name" column="name"/>
-        <many-to-one name="event" class="com.github.syafiqq.hbmtest.pojo.Event" fetch="select">
+        <many-to-one name="event" class="com.github.syafiqq.hbmtest.pojo.Event" cascade="persist" fetch="select">
             <column name="event_id" not-null="true"/>
         </many-to-one>
     </class>
