@@ -4,8 +4,9 @@ import com.github.syafiqq.hbmtest.pojo.Attendee;
 import com.github.syafiqq.hbmtest.pojo.Event;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /*
  * This <test-hibernate> created by :
@@ -23,21 +24,21 @@ public final class Storage
     {
         //events
         events = new LinkedHashMap<>();
-        events.put(1L, new Event(1L, "Breakfast", new Date(), new HashSet<>()));
-        events.put(2L, new Event(2L, "Session 1", new Date(), new HashSet<>()));
+        events.put(1L, new Event("Breakfast", new Date()));
+        events.put(2L, new Event("Session 1", new Date()));
 
         //attendees
         attendees = new LinkedHashMap<>();
-        attendees.put(1L, new Attendee(1L, "Attendee 1", new Date(), null));
-        attendees.put(2L, new Attendee(2L, "Attendee 2", new Date(), null));
-        attendees.put(3L, new Attendee(3L, "Attendee 3", new Date(), null));
-        attendees.put(4L, new Attendee(4L, "Attendee 4", new Date(), null));
-        attendees.put(5L, new Attendee(5L, "Attendee 5", new Date(), null));
+        attendees.put(1L, new Attendee("Attendee 1", new Date()));
+        attendees.put(2L, new Attendee("Attendee 2", new Date()));
+        attendees.put(3L, new Attendee("Attendee 3", new Date()));
+        attendees.put(4L, new Attendee("Attendee 4", new Date()));
+        attendees.put(5L, new Attendee("Attendee 5", new Date()));
 
         //assoc
-        /*events.get(1L).getAttendees().addAll(attendees.entrySet()
+        events.get(1L).getAttendees().addAll(attendees.entrySet()
                                                       .stream()
-                                                      .filter(x -> x.getKey() < 3)
+                                                      .filter(x -> x.getKey() < 3L)
                                                       .map(Map.Entry::getValue)
                                                       .collect(Collectors.toList())
         );
@@ -46,6 +47,14 @@ public final class Storage
                                                       .filter(x -> x.getKey() >= 3)
                                                       .map(Map.Entry::getValue)
                                                       .collect(Collectors.toList())
-        );*/
+        );
+        attendees.entrySet()
+                 .stream()
+                 .filter(x -> x.getKey() < 3L)
+                 .forEach(x -> x.getValue().setEvent(events.get(1L)));
+        attendees.entrySet()
+                 .stream()
+                 .filter(x -> x.getKey() >= 3L)
+                 .forEach(x -> x.getValue().setEvent(events.get(2L)));
     }
 }
