@@ -1,6 +1,7 @@
 package com.github.syafiqq.hbmtest.db.common;
 
 import com.github.syafiqq.hbmtest.db.AbstractConnection;
+import com.github.syafiqq.hbmtest.pojo.Attendee;
 import com.github.syafiqq.hbmtest.pojo.Event;
 import java.util.Arrays;
 import java.util.Date;
@@ -82,6 +83,19 @@ public class BasicTest extends TestCase implements AbstractConnection
             crt.select(cb.count(root));
             var result = session.createQuery(crt).getSingleResult();
             Assert.assertEquals(2L, result);
+            session.getTransaction()
+                   .commit();
+        }
+
+        try(var session = sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            var cb = session.getCriteriaBuilder();
+            var crt = cb.createQuery(Object.class);
+            var root = crt.from(Attendee.class);
+            crt.select(cb.count(root));
+            var result = session.createQuery(crt).getSingleResult();
+            Assert.assertEquals(5L, result);
             session.getTransaction()
                    .commit();
         }
