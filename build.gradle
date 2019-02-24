@@ -19,4 +19,5 @@ dependencies {
     testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
     testImplementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
     testImplementation group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
+    testImplementation group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '7.2.1.jre11'
 }
