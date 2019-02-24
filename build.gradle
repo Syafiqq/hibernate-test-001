@@ -16,6 +16,7 @@ dependencies {
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
     implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.1.Final'
     implementation group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: '3.6.0'
+    implementation group: 'joda-time', name: 'joda-time', version: '2.10.1'
     testImplementation group: 'com.h2database', name: 'h2', version: '1.4.197'
     testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
     testImplementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
