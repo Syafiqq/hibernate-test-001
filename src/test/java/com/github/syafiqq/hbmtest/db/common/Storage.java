@@ -1,5 +1,6 @@
 package com.github.syafiqq.hbmtest.db.common;
 
+import com.datastax.driver.core.utils.UUIDs;
 import com.github.syafiqq.hbmtest.pojo.Attendee;
 import com.github.syafiqq.hbmtest.pojo.Event;
 import java.util.Date;
@@ -24,16 +25,16 @@ public final class Storage
     {
         //events
         events = new LinkedHashMap<>();
-        events.put(1L, new Event("Breakfast", new Date()));
-        events.put(2L, new Event("Session 1", new Date()));
+        events.put(1L, new Event(UUIDs.timeBased(), "Breakfast", new Date()));
+        events.put(2L, new Event(UUIDs.timeBased(), "Session 1", new Date()));
 
         //attendees
         attendees = new LinkedHashMap<>();
-        attendees.put(1L, new Attendee("Attendee 1", new Date()));
-        attendees.put(2L, new Attendee("Attendee 2", new Date()));
-        attendees.put(3L, new Attendee("Attendee 3", new Date()));
-        attendees.put(4L, new Attendee("Attendee 4", new Date()));
-        attendees.put(5L, new Attendee("Attendee 5", new Date()));
+        attendees.put(1L, new Attendee(UUIDs.timeBased(), "Attendee 1", new Date()));
+        attendees.put(2L, new Attendee(UUIDs.timeBased(), "Attendee 2", new Date()));
+        attendees.put(3L, new Attendee(UUIDs.timeBased(), "Attendee 3", new Date()));
+        attendees.put(4L, new Attendee(UUIDs.timeBased(), "Attendee 4", new Date()));
+        attendees.put(5L, new Attendee(UUIDs.timeBased(), "Attendee 5", new Date()));
 
         //assoc
         events.get(1L).getAttendees().addAll(attendees.entrySet()
