@@ -13,7 +13,7 @@
 <hibernate-mapping package="com.github.syafiqq.hbmtest.pojo">
 
     <class name="Attendee" table="attendees">
-        <id name="id" type="org.hibernate.type.UUIDBinaryType" length="36" column="id"/>
+        <id name="id" type="org.hibernate.type.UUIDBinaryType" length="16" column="id"/>
         <property name="date" type="timestamp" column="date"/>
         <property name="name" column="name"/>
         <many-to-one name="event" class="com.github.syafiqq.hbmtest.pojo.Event" cascade="save-update" fetch="select">
