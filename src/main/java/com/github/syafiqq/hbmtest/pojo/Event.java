@@ -3,6 +3,7 @@ package com.github.syafiqq.hbmtest.pojo;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Event
 {
-    private Long id;
+    private UUID id;
     private String title;
     private Date date;
     private transient Set<Attendee> attendees;
@@ -28,6 +29,13 @@ public class Event
     @java.beans.ConstructorProperties({"title", "date"})
     public Event(String title, Date date)
     {
+        this(UUID.randomUUID(), title, date);
+    }
+
+    @java.beans.ConstructorProperties({"id", "title", "date"})
+    public Event(UUID id, String title, Date date)
+    {
+        this.id = id;
         this.title = title;
         this.date = date;
         this.attendees = new HashSet<>();

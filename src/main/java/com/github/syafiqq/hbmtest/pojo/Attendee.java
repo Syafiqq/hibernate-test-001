@@ -1,6 +1,7 @@
 package com.github.syafiqq.hbmtest.pojo;
 
 import java.util.Date;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Attendee
 {
-    private Long id;
+    private UUID id;
     private String name;
     private Date date;
     private transient Event event;
@@ -25,6 +26,13 @@ public class Attendee
     @java.beans.ConstructorProperties({"name", "date"})
     public Attendee(String name, Date date)
     {
+        this(UUID.randomUUID(), name, date);
+    }
+
+    @java.beans.ConstructorProperties({"id", "name", "date"})
+    public Attendee(UUID id, String name, Date date)
+    {
+        this.id = id;
         this.name = name;
         this.date = date;
     }
