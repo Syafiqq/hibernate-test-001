@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
  * Github       : syafiqq
  */
 
+@SuppressWarnings("ALL")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
  * Email        : syafiq.rezpector@gmail.com
  * Github       : syafiqq
  */
+@SuppressWarnings("ALL")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

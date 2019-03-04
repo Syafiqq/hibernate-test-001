@@ -9,6 +9,7 @@ import java.util.UUID;
  * Email        : syafiq.rezpector@gmail.com
  * Github       : syafiqq
  */
+@SuppressWarnings("ALL")
 public class Address
 {
     private UUID id;
