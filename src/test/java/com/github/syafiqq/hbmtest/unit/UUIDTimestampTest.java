@@ -39,7 +39,7 @@ public class UUIDTimestampTest
         System.out.println("uuid.version() = " + uuid.version());
         System.out.println("uuid.toString() = " + uuid.toString());
         System.out.println("uuid.timestamp() = " + uuid.timestamp());
-        System.out.println("uuid.timestamp() = " + DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss.SSS").print(getTimeFromUUID(uuid)));
+        System.out.println("uuid.timestamp() = " + DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss.SSSSSSS").print(getTimeFromUUID(uuid)));
     }
 
 
