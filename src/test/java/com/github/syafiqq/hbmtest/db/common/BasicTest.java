@@ -66,6 +66,8 @@ public class BasicTest extends TestCase implements AbstractConnection
 
     public void testInsertEvent()
     {
+        Relations.attendeesToEvent();
+        Relations.eventToAttendees();
         try(var session = sessionFactory.openSession())
         {
             session.beginTransaction();
