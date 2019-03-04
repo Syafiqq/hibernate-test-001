@@ -20,8 +20,8 @@ import lombok.NoArgsConstructor;
 public class Address
 {
     private UUID id;
-    private String City;
-    private String State;
+    private String city;
+    private String state;
 
     @java.beans.ConstructorProperties({"city", "state"})
     public Address(String city, String state)
