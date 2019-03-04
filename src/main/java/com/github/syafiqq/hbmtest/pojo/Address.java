@@ -1,6 +1,10 @@
 package com.github.syafiqq.hbmtest.pojo;
 
+import com.datastax.driver.core.utils.UUIDs;
 import java.util.UUID;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /*
  * This <test-hibernate> created by :
@@ -10,9 +14,18 @@ import java.util.UUID;
  * Github       : syafiqq
  */
 @SuppressWarnings("ALL")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Address
 {
     private UUID id;
     private String City;
     private String State;
+
+    @java.beans.ConstructorProperties({"city", "state"})
+    public Address(String city, String state)
+    {
+        this(UUIDs.timeBased(), city, state);
+    }
 }
