@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.github.syafiqq.hbmtest.pojo">
+
+    <class name="Address" table="addresses">
+        <id name="id" type="org.hibernate.type.UUIDBinaryType" length="16" column="id"/>
+        <property name="city" type="string" not-null="true" length="100" column="city"/>
+        <property name="state" type="string" not-null="true" length="100" column="state"/>
+    </class>
+
+</hibernate-mapping>
