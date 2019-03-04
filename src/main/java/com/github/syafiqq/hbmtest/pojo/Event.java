@@ -1,5 +1,6 @@
 package com.github.syafiqq.hbmtest.pojo;
 
+import com.datastax.driver.core.utils.UUIDs;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -29,7 +30,7 @@ public class Event
     @java.beans.ConstructorProperties({"title", "date"})
     public Event(String title, Date date)
     {
-        this(UUID.randomUUID(), title, date);
+        this(UUIDs.timeBased(), title, date);
     }
 
     @java.beans.ConstructorProperties({"id", "title", "date"})

@@ -1,5 +1,6 @@
 package com.github.syafiqq.hbmtest.pojo;
 
+import com.datastax.driver.core.utils.UUIDs;
 import java.util.Date;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
@@ -26,7 +27,7 @@ public class Attendee
     @java.beans.ConstructorProperties({"name", "date"})
     public Attendee(String name, Date date)
     {
-        this(UUID.randomUUID(), name, date);
+        this(UUIDs.timeBased(), name, date);
     }
 
     @java.beans.ConstructorProperties({"id", "name", "date"})
