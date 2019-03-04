@@ -4,6 +4,7 @@ import com.datastax.driver.core.utils.UUIDs;
 import com.github.syafiqq.hbmtest.pojo.Address;
 import com.github.syafiqq.hbmtest.pojo.Attendee;
 import com.github.syafiqq.hbmtest.pojo.Event;
+import com.github.syafiqq.hbmtest.pojo.User;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -21,6 +22,7 @@ public final class Storage
     public static final HashMap<Long, Event> events;
     public static final HashMap<Long, Attendee> attendees;
     public static final HashMap<Long, Address> addresses;
+    public static final HashMap<Long, User> users;
 
     static
     {
@@ -44,5 +46,13 @@ public final class Storage
         addresses.put(4L, new Address("City 4", "State 4"));
         addresses.put(5L, new Address("City 5", "State 5"));
         addresses.put(6L, new Address("City 6", "State 6"));
+
+        users = new LinkedHashMap<>();
+        users.put(1L, new User("Name 1", 1));
+        users.put(2L, new User("Name 2", 2));
+        users.put(3L, new User("Name 3", 3));
+        users.put(4L, new User("Name 4", 4));
+        users.put(5L, new User("Name 5", 5));
+        users.put(6L, new User("Name 6", 6));
     }
 }
