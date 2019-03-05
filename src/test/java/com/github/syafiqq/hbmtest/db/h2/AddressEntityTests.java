@@ -21,4 +21,13 @@ public class AddressEntityTests extends TestCase implements AbstractConnection
     {
         sessionFactory = AbstractConnection.super.setUp("/hbm/config/hibernate.h2.cfg.xml");
     }
+
+    @Override
+    protected void tearDown() throws Exception
+    {
+        if(sessionFactory != null)
+        {
+            sessionFactory.close();
+        }
+    }
 }
