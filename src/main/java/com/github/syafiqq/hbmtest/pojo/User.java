@@ -22,7 +22,7 @@ public class User
     private UUID id;
     private String name;
     private Integer age;
-    private Address address;
+    private transient Address address;
 
     @java.beans.ConstructorProperties({"name", "age"})
     public User(String name, Integer age)
