@@ -16,6 +16,7 @@
         <id name="id" type="org.hibernate.type.UUIDBinaryType" length="16" column="id"/>
         <property name="city" type="string" not-null="true" length="100" column="city"/>
         <property name="state" type="string" not-null="true" length="100" column="state"/>
+        <one-to-one name="user" cascade="all" constrained="true" class="com.github.syafiqq.hbmtest.pojo.User"/>
     </class>
 
 </hibernate-mapping>
