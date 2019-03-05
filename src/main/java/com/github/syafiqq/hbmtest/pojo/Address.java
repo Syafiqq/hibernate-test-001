@@ -22,10 +22,17 @@ public class Address
     private UUID id;
     private String city;
     private String state;
+    private transient User user;
 
     @java.beans.ConstructorProperties({"city", "state"})
     public Address(String city, String state)
     {
-        this(UUIDs.timeBased(), city, state);
+        this(UUIDs.timeBased(), city, state, null);
+    }
+
+    @java.beans.ConstructorProperties({"city", "state", "user"})
+    public Address(String city, String state, User user)
+    {
+        this(UUIDs.timeBased(), city, state, user);
     }
 }
