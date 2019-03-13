@@ -40,16 +40,18 @@ public class AddressEntityTests extends TestCase implements AbstractConnection
         try(var session = sessionFactory.openSession())
         {
             var user = Storage.users.get(1L);
-            var address = Storage.addresses.get(1L);
-            user.setAddress1(address);
-            address.setUser(user);
-            address.setId(user.getId());
+            var address1 = Storage.addresses1.get(1L);
+            var address2 = Storage.addresses2.get(1L);
+            user.setAddress1(address1);
+            user.setAddress2(address2);
+            address1.setUser(user);
+            address1.setId(user.getId());
             Assert.assertThat(0, is(HibernateLifecycleUtil.getManagedEntities(session).size()));
             session.beginTransaction();
             session.save(user);
             session.getTransaction()
                    .commit();
-            Assert.assertThat(2, is(HibernateLifecycleUtil.getManagedEntities(session).size()));
+            Assert.assertThat(3, is(HibernateLifecycleUtil.getManagedEntities(session).size()));
         }
     }
 }

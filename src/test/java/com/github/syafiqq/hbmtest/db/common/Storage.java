@@ -2,6 +2,7 @@ package com.github.syafiqq.hbmtest.db.common;
 
 import com.datastax.driver.core.utils.UUIDs;
 import com.github.syafiqq.hbmtest.pojo.Address1;
+import com.github.syafiqq.hbmtest.pojo.Address2;
 import com.github.syafiqq.hbmtest.pojo.Attendee;
 import com.github.syafiqq.hbmtest.pojo.Event;
 import com.github.syafiqq.hbmtest.pojo.User;
@@ -21,7 +22,8 @@ public final class Storage
 {
     public static final HashMap<Long, Event> events;
     public static final HashMap<Long, Attendee> attendees;
-    public static final HashMap<Long, Address1> addresses;
+    public static final HashMap<Long, Address1> addresses1;
+    public static final HashMap<Long, Address2> addresses2;
     public static final HashMap<Long, User> users;
 
     static
@@ -39,13 +41,21 @@ public final class Storage
         attendees.put(4L, new Attendee(UUIDs.timeBased(), "Attendee 4", new Date()));
         attendees.put(5L, new Attendee(UUIDs.timeBased(), "Attendee 5", new Date()));
 
-        addresses = new LinkedHashMap<>();
-        addresses.put(1L, new Address1("City 1", "State 1"));
-        addresses.put(2L, new Address1("City 2", "State 2"));
-        addresses.put(3L, new Address1("City 3", "State 3"));
-        addresses.put(4L, new Address1("City 4", "State 4"));
-        addresses.put(5L, new Address1("City 5", "State 5"));
-        addresses.put(6L, new Address1("City 6", "State 6"));
+        addresses1 = new LinkedHashMap<>();
+        addresses1.put(1L, new Address1("City 1", "State 1"));
+        addresses1.put(2L, new Address1("City 2", "State 2"));
+        addresses1.put(3L, new Address1("City 3", "State 3"));
+        addresses1.put(4L, new Address1("City 4", "State 4"));
+        addresses1.put(5L, new Address1("City 5", "State 5"));
+        addresses1.put(6L, new Address1("City 6", "State 6"));
+
+        addresses2 = new LinkedHashMap<>();
+        addresses2.put(1L, new Address2("City 1", "State 1"));
+        addresses2.put(2L, new Address2("City 2", "State 2"));
+        addresses2.put(3L, new Address2("City 3", "State 3"));
+        addresses2.put(4L, new Address2("City 4", "State 4"));
+        addresses2.put(5L, new Address2("City 5", "State 5"));
+        addresses2.put(6L, new Address2("City 6", "State 6"));
 
         users = new LinkedHashMap<>();
         users.put(1L, new User("Name 1", 1));
