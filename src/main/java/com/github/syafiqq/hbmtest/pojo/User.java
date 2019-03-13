@@ -22,7 +22,7 @@ public class User
     private UUID id;
     private String name;
     private Integer age;
-    private transient Address address;
+    private transient Address1 address1;
 
     @java.beans.ConstructorProperties({"name", "age"})
     public User(String name, Integer age)
@@ -30,9 +30,9 @@ public class User
         this(UUIDs.timeBased(), name, age, null);
     }
 
-    @java.beans.ConstructorProperties({"name", "age", "address"})
-    public User(String name, Integer age, Address address)
+    @java.beans.ConstructorProperties({"name", "age", "address1"})
+    public User(String name, Integer age, Address1 address1)
     {
-        this(UUIDs.timeBased(), name, age, address);
+        this(UUIDs.timeBased(), name, age, address1);
     }
 }

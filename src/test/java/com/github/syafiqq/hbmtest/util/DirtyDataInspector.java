@@ -1,6 +1,6 @@
 package com.github.syafiqq.hbmtest.util;
 
-import com.github.syafiqq.hbmtest.pojo.Address;
+import com.github.syafiqq.hbmtest.pojo.Address1;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +16,9 @@ import org.hibernate.type.Type;
  */
 public class DirtyDataInspector extends EmptyInterceptor
 {
-    private static final ArrayList<Address> dirtyEntities = new ArrayList<>();
+    private static final ArrayList<Address1> dirtyEntities = new ArrayList<>();
 
-    public static List<Address> getDirtyEntities()
+    public static List<Address1> getDirtyEntities()
     {
         return dirtyEntities;
     }
@@ -30,7 +30,7 @@ public class DirtyDataInspector extends EmptyInterceptor
 
     @Override public boolean onFlushDirty(Object entity, Serializable id, Object[] currentState, Object[] previousState, String[] propertyNames, Type[] types)
     {
-        dirtyEntities.add((Address) entity);
+        dirtyEntities.add((Address1) entity);
         return true;
     }
 }

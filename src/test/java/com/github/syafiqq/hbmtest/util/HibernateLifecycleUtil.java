@@ -1,6 +1,6 @@
 package com.github.syafiqq.hbmtest.util;
 
-import com.github.syafiqq.hbmtest.pojo.Address;
+import com.github.syafiqq.hbmtest.pojo.Address1;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -68,7 +68,7 @@ public class HibernateLifecycleUtil
     private static SessionFactoryBuilder getSessionFactoryBuilder(ServiceRegistry serviceRegistry)
     {
         MetadataSources metadataSources = new MetadataSources(serviceRegistry);
-        metadataSources.addAnnotatedClass(Address.class);
+        metadataSources.addAnnotatedClass(Address1.class);
 
         Metadata metadata = metadataSources.buildMetadata();
         return metadata.getSessionFactoryBuilder();

@@ -11,28 +11,28 @@ import java.util.UUID;
  * Github       : syafiqq
  */
 @SuppressWarnings("ALL")
-public class Address extends AbstractAddress
+public class Address1 extends AbstractAddress
 {
     @java.beans.ConstructorProperties({})
-    public Address()
+    public Address1()
     {
         super();
     }
 
     @java.beans.ConstructorProperties({"city", "state"})
-    public Address(String city, String state)
+    public Address1(String city, String state)
     {
         super(UUIDs.timeBased(), city, state, null);
     }
 
     @java.beans.ConstructorProperties({"city", "state", "user"})
-    public Address(String city, String state, User user)
+    public Address1(String city, String state, User user)
     {
         super(UUIDs.timeBased(), city, state, user);
     }
 
     @java.beans.ConstructorProperties({"id", "city", "state", "user"})
-    public Address(UUID id, String city, String state, User user)
+    public Address1(UUID id, String city, String state, User user)
     {
         super(id, city, state, user);
     }
