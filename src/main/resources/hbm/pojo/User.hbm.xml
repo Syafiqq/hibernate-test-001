@@ -17,6 +17,10 @@
         <property name="name" type="string" not-null="true" length="100" column="name"/>
         <property name="age" type="integer" not-null="true" column="age"/>
         <one-to-one name="address1" cascade="all" class="com.github.syafiqq.hbmtest.pojo.Address1"/>
+        <many-to-one name="address2" class="com.github.syafiqq.hbmtest.pojo.Address2" cascade="save-update"
+                     fetch="select">
+            <column name="address_id" not-null="false" unique="false"/>
+        </many-to-one>
     </class>
 
 </hibernate-mapping>
