@@ -2,9 +2,6 @@ package com.github.syafiqq.hbmtest.pojo;
 
 import com.datastax.driver.core.utils.UUIDs;
 import java.util.UUID;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /*
  * This <test-hibernate> created by :
@@ -14,25 +11,29 @@ import lombok.NoArgsConstructor;
  * Github       : syafiqq
  */
 @SuppressWarnings("ALL")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Address
+public class Address extends AbstractAddress
 {
-    private UUID id;
-    private String city;
-    private String state;
-    private transient User user;
+    @java.beans.ConstructorProperties({})
+    public Address()
+    {
+        super();
+    }
 
     @java.beans.ConstructorProperties({"city", "state"})
     public Address(String city, String state)
     {
-        this(UUIDs.timeBased(), city, state, null);
+        super(UUIDs.timeBased(), city, state, null);
     }
 
     @java.beans.ConstructorProperties({"city", "state", "user"})
     public Address(String city, String state, User user)
     {
-        this(UUIDs.timeBased(), city, state, user);
+        super(UUIDs.timeBased(), city, state, user);
+    }
+
+    @java.beans.ConstructorProperties({"id", "city", "state", "user"})
+    public Address(UUID id, String city, String state, User user)
+    {
+        super(id, city, state, user);
     }
 }
