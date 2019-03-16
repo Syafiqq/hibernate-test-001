@@ -38,6 +38,9 @@
 
         <mapping resource="hbm/pojo/Event.hbm.xml"/>
         <mapping resource="hbm/pojo/Attendee.hbm.xml"/>
+        <mapping resource="hbm/pojo/Address1.hbm.xml"/>
+        <mapping resource="hbm/pojo/Address2.hbm.xml"/>
+        <mapping resource="hbm/pojo/User.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>
